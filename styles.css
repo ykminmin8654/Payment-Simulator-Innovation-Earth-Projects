@@ -285,6 +285,11 @@ main, .nav, .footer { position: relative; z-index: 1; }
   color: var(--ink-faint, var(--ink-soft));
   opacity: 0.85;
 }
+.beta-access-note a {
+  color: var(--teal, #008080);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
 /* ---------- HOW IT WORKS (steps, like home) ---------- */
 .steps {

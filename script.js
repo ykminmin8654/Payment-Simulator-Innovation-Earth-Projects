@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     // 4. Active nav link based on scroll position
-    var sectionIds = ['features', 'beta', 'how-it-works', 'contact'];
+    var sectionIds = ['features', 'download', 'how-it-works', 'contact'];
     var sections = sectionIds
         .map(function (id) { return document.getElementById(id); })
         .filter(Boolean);
