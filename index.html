@@ -3,93 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Simulator - Beta Program</title>
+    <title>Payment Simulator — Beta Program | Innovation Earth Projects</title>
+    <meta name="description" content="Join the Payment Simulator beta program and help shape the future of Android payment testing. A student-built tool from Innovation Earth Projects." />
+    <meta name="theme-color" content="#008080" />
+
+    <!-- Fonts (same as innovationearthprojects.org) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet"
+    />
     <!-- Font Awesome (for icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- External CSS File -->
+
+    <!-- Shared design system stylesheets from the main IEP site -->
+    <link rel="stylesheet" href="https://innovationearthprojects.org/shared/tokens.css" />
+    <link rel="stylesheet" href="https://innovationearthprojects.org/shared/base.css" />
+    <link rel="stylesheet" href="https://innovationearthprojects.org/shared/nav.css?v=20261020a" />
+    <link rel="stylesheet" href="https://innovationearthprojects.org/shared/motion.css" />
+
+    <!-- Page-specific stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="payment-simulator">
+
+    <!-- Ambient background orbs (site-wide motif) -->
+    <div class="bg-orbs" aria-hidden="true">
+        <span class="orb orb--teal"></span>
+        <span class="orb orb--cyan"></span>
+        <span class="orb orb--lime"></span>
+    </div>
+
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-image">
-                        <i class="fas fa-credit-card" style="color: var(--teal); font-size: 1.5rem;"></i>
-                    </div>
-                    <h1>Payment <span>Simulator</span> <span class="beta-badge">Beta</span></h1>
-                </div>
-                
-                <nav class="navigation">
-                    <button class="mobile-menu-toggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <ul class="nav-list">
-                        <li><a href="#features" class="nav-link"><i class="fas fa-star"></i> Features</a></li>
-                        <li><a href="#beta-program" class="nav-link"><i class="fas fa-users"></i> Beta Program</a></li>
-                        <li><a href="#how-it-works" class="nav-link"><i class="fas fa-question-circle"></i> How It Works</a></li>
-                        <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <header class="nav">
+        <div class="nav__inner">
+            <a href="https://innovationearthprojects.org/home" class="nav__brand" aria-label="Innovation Earth Projects — home">
+                <span class="nav__mark"><i class="fas fa-credit-card" style="font-size: 1.35rem;"></i></span>
+                <span class="nav__wordmark">Payment&nbsp;<span class="accent">Simulator</span> <span class="beta-badge">Beta</span></span>
+            </a>
+
+            <nav class="nav__links" id="primary-nav" aria-label="Primary">
+                <a href="#features" class="is-active">Features</a>
+                <a href="#beta-program">Beta Program</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <a href="#beta-program" class="btn btn--ghost nav__cta shine">
+                Join beta <i class="fas fa-arrow-right"></i>
+            </a>
+
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
         <!-- Hero Section (Beta Focus) -->
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Payment Simulator <span class="beta-badge">Beta</span></h1>
-                    <p class="beta-subtitle">Join Our Beta Program & Shape the Future of Payment Testing</p>
-                    <p>We're building the most comprehensive Android payment testing tool — and we need your help! Sign up for our beta program to test early versions, provide feedback, and influence the final product.</p>
-                    <a href="#beta-program" class="btn btn-beta">
-                        <i class="fas fa-hand-sparkles"></i> Join Beta Program
-                    </a>
+        <section class="hero">
+            <div class="container hero__grid hero__grid--single">
+                <div class="hero__copy hero__copy--center">
+                    <span class="eyebrow eyebrow--animated">
+                        <span class="eyebrow__dot"></span>
+                        Now accepting beta testers · Android only
+                    </span>
+
+                    <h1 class="hero__title">
+                        <span class="reveal">Payment Simulator.</span><br />
+                        <span class="reveal accent" data-delay="100">Test payments safely.</span>
+                    </h1>
+
+                    <p class="hero__lede reveal" data-delay="200">
+                        We're building the most comprehensive Android payment testing tool —
+                        and we need your help! Sign up for our beta program to test early
+                        versions, provide feedback, and influence the final product.
+                    </p>
+
+                    <div class="hero__actions reveal" data-delay="400">
+                        <a href="#beta-program" class="btn btn--primary btn--glow btn--lg">
+                            <i class="fas fa-hand-sparkles"></i> Join Beta Program
+                        </a>
+                        <a href="#features" class="btn btn--secondary btn--lg">
+                            See features
+                        </a>
+                    </div>
+
+                    <ul class="hero__meta reveal" data-delay="600">
+                        <li><i class="fas fa-check"></i> Free during beta</li>
+                        <li><i class="fas fa-check"></i> No real money involved</li>
+                        <li><i class="fas fa-check"></i> Direct line to devs</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <!-- Features Section -->
-        <section id="features" class="section">
+        <section id="features" class="section section--tint">
             <div class="container">
-                <div class="section-header">
-                    <h2>Upcoming Features <span class="beta-badge">Beta</span></h2>
-                    <p>These are the features we're building for the first beta release — help us test and improve them!</p>
-                </div>
+                <header class="section__head reveal">
+                    <span class="eyebrow">Tools</span>
+                    <h2 class="section__title">Upcoming Features <span class="beta-badge">Beta</span></h2>
+                    <p class="section__lede">These are the features we're building for the first beta release — help us test and improve them!</p>
+                </header>
 
-                <div class="features-grid">
-                    <div class="feature-card animate-on-scroll">
-                        <i class="fas fa-credit-card"></i>
-                        <h3>Multiple Payment Methods</h3>
-                        <p>Simulate credit/debit cards, UPI, net banking, wallets, and more payment options.</p>
+                <div class="reasons features-grid">
+                    <div class="reason reveal">
+                        <div class="reason__icon reason__icon--teal"><i class="fas fa-credit-card"></i></div>
+                        <h3 class="reason__title">Multiple Payment Methods</h3>
+                        <p class="reason__desc">Simulate credit/debit cards, UPI, net banking, wallets, and more payment options.</p>
                     </div>
-                    <div class="feature-card animate-on-scroll" data-delay="200">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Transaction Analytics</h3>
-                        <p>Track and analyze all simulated transactions with detailed reports and logs.</p>
+                    <div class="reason reveal" data-delay="100">
+                        <div class="reason__icon reason__icon--cyan"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="reason__title">Transaction Analytics</h3>
+                        <p class="reason__desc">Track and analyze all simulated transactions with detailed reports and logs.</p>
                     </div>
-                    <div class="feature-card animate-on-scroll" data-delay="400">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Safe Testing Environment</h3>
-                        <p>Test payment flows without using real financial data or making actual transactions.</p>
+                    <div class="reason reveal" data-delay="200">
+                        <div class="reason__icon reason__icon--lime"><i class="fas fa-shield-alt"></i></div>
+                        <h3 class="reason__title">Safe Testing Environment</h3>
+                        <p class="reason__desc">Test payment flows without using real financial data or making actual transactions.</p>
                     </div>
-                    <div class="feature-card animate-on-scroll" data-delay="600">
-                        <i class="fas fa-cogs"></i>
-                        <h3>Customizable Scenarios</h3>
-                        <p>Create custom payment scenarios including success, failure, and pending states.</p>
+                    <div class="reason reveal" data-delay="300">
+                        <div class="reason__icon reason__icon--teal"><i class="fas fa-cogs"></i></div>
+                        <h3 class="reason__title">Customizable Scenarios</h3>
+                        <p class="reason__desc">Create custom payment scenarios including success, failure, and pending states.</p>
                     </div>
-                    <div class="feature-card animate-on-scroll" data-delay="800">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h3>Offline Mode</h3>
-                        <p>Simulate payments even without an internet connection for edge case testing.</p>
+                    <div class="reason reveal" data-delay="400">
+                        <div class="reason__icon reason__icon--cyan"><i class="fas fa-mobile-alt"></i></div>
+                        <h3 class="reason__title">Offline Mode</h3>
+                        <p class="reason__desc">Simulate payments even without an internet connection for edge case testing.</p>
                     </div>
-                    <div class="feature-card animate-on-scroll" data-delay="1000">
-                        <i class="fas fa-file-export"></i>
-                        <h3>Export Reports</h3>
-                        <p>Export transaction logs and analytics in CSV/Excel format for further analysis.</p>
+                    <div class="reason reveal" data-delay="500">
+                        <div class="reason__icon reason__icon--lime"><i class="fas fa-file-export"></i></div>
+                        <h3 class="reason__title">Export Reports</h3>
+                        <p class="reason__desc">Export transaction logs and analytics in CSV/Excel format for further analysis.</p>
                     </div>
                 </div>
             </div>
@@ -98,135 +147,125 @@
         <!-- Beta Program Section (Core Focus) -->
         <section id="beta-program" class="section">
             <div class="container">
-                <div class="section-header">
-                    <h2>Join Our Beta Program <span class="beta-badge">Limited Spots</span></h2>
-                    <p>Be among the first to test Payment Simulator and help us build a better product for developers and testers.</p>
-                </div>
+                <header class="section__head reveal">
+                    <span class="eyebrow">Beta Program</span>
+                    <h2 class="section__title">Join Our Beta Program <span class="beta-badge">Limited Spots</span></h2>
+                    <p class="section__lede">Be among the first to test Payment Simulator and help us build a better product for developers and testers.</p>
+                </header>
 
-                <div class="beta-program-section">
-                    <div class="container">
-                        <div class="beta-program-content">
-                            <div class="beta-program-text animate-on-scroll">
-                                <h3>What You'll Get as a Beta Tester</h3>
-                                <p>As a member of our beta program, you'll get exclusive access to early versions of Payment Simulator and the chance to shape its development.</p>
-                                
-                                <ul>
-                                    <li>Early access to the <span class="beta-highlight">beta version</span> of the app (Android only)</li>
-                                    <li>Direct communication with our development team</li>
-                                    <li>Ability to report bugs and request new features</li>
-                                    <li>Recognition in our app credits (optional)</li>
-                                    <li>Exclusive updates on new feature development</li>
-                                    <li>Priority support for any issues you encounter</li>
-                                </ul>
-                                
-                                <p><strong>Who we're looking for:</strong> Developers, QA testers, financial professionals, and anyone interested in payment processing testing.</p>
+                <div class="beta-signup-section">
+                    <div class="beta-signup-text reveal">
+                        <h3>What You'll Get as a Beta Tester</h3>
+                        <p>As a member of our beta program, you'll get exclusive access to early versions of Payment Simulator and the chance to shape its development.</p>
+
+                        <ul class="checklist">
+                            <li>Early access to the <span class="highlight">beta version</span> of the app (Android only)</li>
+                            <li>Direct communication with our development team</li>
+                            <li>Ability to report bugs and request new features</li>
+                            <li>Recognition in our app credits (optional)</li>
+                            <li>Exclusive updates on new feature development</li>
+                            <li>Priority support for any issues you encounter</li>
+                        </ul>
+
+                        <p class="who-we-want"><strong>Who we're looking for:</strong> Developers, QA testers, financial professionals, and anyone interested in payment processing testing.</p>
+                    </div>
+
+                    <!-- Beta Signup Form -->
+                    <div class="beta-signup-form reveal" data-delay="200">
+                        <h4>Apply to Join the Beta Program</h4>
+                        <form id="beta-signup-form">
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" id="full-name" name="full-name" required placeholder="John Doe">
                             </div>
-                            
-                            <!-- Beta Signup Form -->
-                            <div class="beta-signup-form animate-on-scroll" data-delay="300">
-                                <h4>Apply to Join the Beta Program</h4>
-                                <form id="beta-signup-form">
-                                    <div class="form-group">
-                                        <label for="full-name">Full Name</label>
-                                        <input type="text" id="full-name" name="full-name" required placeholder="John Doe">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Email Address</label>
-                                        <input type="email" id="email" name="email" required placeholder="john@example.com">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phone">Phone Number (Optional)</label>
-                                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="experience">Your Experience with Payment Testing</label>
-                                        <select id="experience" name="experience" required>
-                                            <option value="" disabled selected>Select your experience level</option>
-                                            <option value="beginner">Beginner (Little to no experience)</option>
-                                            <option value="intermediate">Intermediate (Some testing experience)</option>
-                                            <option value="advanced">Advanced (Extensive testing experience)</option>
-                                            <option value="expert">Expert (Professional tester/developer)</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message">Why do you want to join the beta program?</label>
-                                        <textarea id="message" name="message" required placeholder="Tell us why you'd be a great beta tester..."></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                                        <i class="fas fa-paper-plane"></i> Submit Application
-                                    </button>
-                                </form>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number (Optional)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Your Experience with Payment Testing</label>
+                                <select id="experience" name="experience" required>
+                                    <option value="" disabled selected>Select your experience level</option>
+                                    <option value="beginner">Beginner (Little to no experience)</option>
+                                    <option value="intermediate">Intermediate (Some testing experience)</option>
+                                    <option value="advanced">Advanced (Extensive testing experience)</option>
+                                    <option value="expert">Expert (Professional tester/developer)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Why do you want to join the beta program?</label>
+                                <textarea id="message" name="message" required placeholder="Tell us why you'd be a great beta tester..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--block btn--glow">
+                                <i class="fas fa-paper-plane"></i> Submit Application
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- How It Works (Beta Edition) -->
-        <section id="how-it-works" class="section section-alt">
+        <section id="how-it-works" class="section section--tint">
             <div class="container">
-                <div class="section-header">
-                    <h2>How the Beta Program Works</h2>
-                    <p>Here's what to expect when you join our beta testing program.</p>
-                </div>
+                <header class="section__head reveal">
+                    <span class="eyebrow">How it works</span>
+                    <h2 class="section__title">How the Beta Program Works</h2>
+                    <p class="section__lede">Here's what to expect when you join our beta testing program.</p>
+                </header>
 
-                <div class="how-it-works-timeline">
-                    <div class="step-item animate-on-scroll">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Submit Your Application</h3>
-                            <p>Fill out the beta program application form with your details and experience.</p>
-                            <span class="beta-note">Beta note: Applications are reviewed within 3-5 business days</span>
-                        </div>
-                    </div>
-                    <div class="step-item animate-on-scroll" data-delay="200">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Receive Beta Access</h3>
-                            <p>Approved testers get a link to download the beta app and join our feedback channel.</p>
-                            <span class="beta-note">Beta note: Beta app is distributed via Google Play Beta or direct APK</span>
-                        </div>
-                    </div>
-                    <div class="step-item animate-on-scroll" data-delay="400">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Test the App</h3>
-                            <p>Use the beta app to test payment simulations and provide feedback on features and usability.</p>
-                            <span class="beta-note">Beta note: We ask for a minimum of 2 hours of testing per week</span>
-                        </div>
-                    </div>
-                    <div class="step-item animate-on-scroll" data-delay="600">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h3>Provide Feedback</h3>
-                            <p>Submit bug reports, feature requests, and general feedback through our dedicated channels.</p>
-                            <span class="beta-note">Beta note: Feedback is reviewed weekly by our development team</span>
-                        </div>
-                    </div>
-                    <div class="step-item animate-on-scroll" data-delay="800">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                            <h3>Get Updates</h3>
-                            <p>Receive regular beta updates with new features and bug fixes based on tester feedback.</p>
-                            <span class="beta-note">Beta note: Updates are released every 1-2 weeks during beta phase</span>
-                        </div>
-                    </div>
-                </div>
+                <ol class="steps">
+                    <li class="step reveal" data-delay="100">
+                        <span class="step__num">01</span>
+                        <h3 class="step__title">Submit Your Application</h3>
+                        <p class="step__desc">Fill out the beta program application form with your details and experience.</p>
+                        <span class="beta-note">Beta note: Applications are reviewed within 3-5 business days</span>
+                    </li>
+                    <li class="step reveal" data-delay="200">
+                        <span class="step__num">02</span>
+                        <h3 class="step__title">Receive Beta Access</h3>
+                        <p class="step__desc">Approved testers get a link to download the beta app and join our feedback channel.</p>
+                        <span class="beta-note">Beta note: Beta app is distributed via Google Play Beta or direct APK</span>
+                    </li>
+                    <li class="step reveal" data-delay="300">
+                        <span class="step__num">03</span>
+                        <h3 class="step__title">Test the App</h3>
+                        <p class="step__desc">Use the beta app to test payment simulations and provide feedback on features and usability.</p>
+                        <span class="beta-note">Beta note: We ask for a minimum of 2 hours of testing per week</span>
+                    </li>
+                    <li class="step reveal" data-delay="400">
+                        <span class="step__num">04</span>
+                        <h3 class="step__title">Provide Feedback</h3>
+                        <p class="step__desc">Submit bug reports, feature requests, and general feedback through our dedicated channels.</p>
+                        <span class="beta-note">Beta note: Feedback is reviewed weekly by our development team</span>
+                    </li>
+                    <li class="step reveal" data-delay="500">
+                        <span class="step__num">05</span>
+                        <h3 class="step__title">Get Updates</h3>
+                        <p class="step__desc">Receive regular beta updates with new features and bug fixes based on tester feedback.</p>
+                        <span class="beta-note">Beta note: Updates are released every 1-2 weeks during beta phase</span>
+                    </li>
+                </ol>
             </div>
         </section>
 
         <!-- CTA Section (Beta Focus) -->
-        <section class="cta-section">
+        <section class="section">
             <div class="container">
-                <div class="cta-content">
-                    <h2>Ready to Shape the Future of <span class="beta-accent-text">Payment Simulator</span>?</h2>
-                    <p>Join our beta program today and help us build the best payment testing tool for Android developers.</p>
-                    <div class="cta-buttons">
-                        <a href="#beta-program" class="btn btn-beta">
+                <div class="cta reveal">
+                    <div class="cta__copy">
+                        <h2>Ready to Shape the Future of <span class="accent">Payment Simulator</span>?</h2>
+                        <p>Join our beta program today and help us build the best payment testing tool for Android developers.</p>
+                    </div>
+                    <div class="cta__actions">
+                        <a href="#beta-program" class="btn btn--primary btn--glow">
                             <i class="fas fa-user-plus"></i> Apply for Beta Program
                         </a>
-                        <a href="#contact" class="btn btn-secondary">
+                        <a href="#contact" class="btn btn--secondary">
                             <i class="fas fa-question-circle"></i> Ask About Beta
                         </a>
                     </div>
@@ -237,35 +276,48 @@
 
     <!-- Footer -->
     <footer class="footer" id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Payment Simulator (Beta)</h3>
-                    <p>A powerful Android app for testing and simulating payment transactions in a safe, controlled environment.</p>
-                    <p class="beta-disclaimer">⚠️ This app is currently in beta testing — features and functionality may change.</p>
+        <div class="container footer__inner">
+            <div class="footer__col">
+                <div class="footer__brand">
+                    <span class="nav__mark"><i class="fas fa-credit-card" style="font-size: 1.1rem;"></i></span>
+                    <span>Payment Simulator (Beta)</span>
                 </div>
-                <div class="footer-section">
-                    <h3>Beta Program</h3>
-                    <ul>
-                        <li><a href="#beta-program"><i class="fas fa-arrow-right"></i> Apply to Join</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Beta FAQ</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Feedback Form</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Known Issues</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Beta Terms</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <address>
-                        <p><i class="fas fa-envelope"></i> beta@paymentsimulator.com</p>
-                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, San Francisco, CA 94107</p>
-                    </address>
-                </div>
+                <p class="footer__tagline">A powerful Android app for testing and simulating payment transactions in a safe, controlled environment.</p>
+                <p class="beta-disclaimer">⚠️ This app is currently in beta testing — features and functionality may change.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Payment Simulator. All rights reserved. | This app is in beta testing — not intended for production use.</p>
+            <div class="footer__col">
+                <h4>Beta Program</h4>
+                <ul>
+                    <li><a href="#beta-program"><i class="fas fa-arrow-right"></i> Apply to Join</a></li>
+                    <li><a href="#"><i class="fas fa-arrow-right"></i> Beta FAQ</a></li>
+                    <li><a href="#"><i class="fas fa-arrow-right"></i> Feedback Form</a></li>
+                    <li><a href="#"><i class="fas fa-arrow-right"></i> Known Issues</a></li>
+                    <li><a href="#"><i class="fas fa-arrow-right"></i> Beta Terms</a></li>
+                </ul>
             </div>
+            <div class="footer__col">
+                <h4>Site</h4>
+                <ul>
+                    <li><a href="https://innovationearthprojects.org/home"><i class="fas fa-arrow-right"></i> Innovation Earth Home</a></li>
+                    <li><a href="https://innovationearthprojects.org/products"><i class="fas fa-arrow-right"></i> All Products</a></li>
+                    <li><a href="https://innovationearthprojects.org/about"><i class="fas fa-arrow-right"></i> About</a></li>
+                    <li><a href="https://innovationearthprojects.org/contact"><i class="fas fa-arrow-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:beta@paymentsimulator.com"><i class="fas fa-envelope"></i> beta@paymentsimulator.com</a></li>
+                    <li><a href="mailto:InnovationEarthProjects@gmail.com"><i class="fas fa-envelope"></i> InnovationEarthProjects@gmail.com</a></li>
+                    <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                    <li><span class="footer__addr"><i class="fas fa-map-marker-alt"></i> 123 Tech Street, San Francisco, CA 94107</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer__bottom">
+            <span>&copy; <span id="footer-year">2026</span> Innovation Earth Projects LLC &middot; Utah, USA</span>
+            <span>This app is in beta testing — not intended for production use.</span>
+            <span>Built by students.</span>
         </div>
     </footer>
 

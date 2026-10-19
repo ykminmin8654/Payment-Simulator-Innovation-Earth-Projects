@@ -1,93 +1,68 @@
-// Wait for DOM to load completely
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Mobile Menu Toggle Functionality
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navList = document.querySelector('.nav-list');
-    
-    if (mobileMenuToggle && navList) {
-        mobileMenuToggle.addEventListener('click', function() {
-            navList.classList.toggle('show');
+// Payment Simulator — beta landing page interactions
+// Matches the innovationearthprojects.org design system behaviour.
+
+document.documentElement.classList.remove('no-js');
+
+document.addEventListener('DOMContentLoaded', function () {
+    // 1. Mobile menu toggle (nav.css: .nav__links.is-open)
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('primary-nav');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function () {
+            var open = navLinks.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
 
         // Close menu when clicking a link (mobile view)
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    navList.classList.remove('show');
+        navLinks.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (window.innerWidth <= 860) {
+                    navLinks.classList.remove('is-open');
+                    navToggle.setAttribute('aria-expanded', 'false');
                 }
             });
         });
     }
 
-    // 2. Scroll Animations for "animate-on-scroll" Elements
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            // Animate when element is 100px into view
-            if (elementTop < windowHeight - 100) {
-                element.classList.add('animated');
-            }
-        });
-    };
+    // 2. Scroll reveal for ".reveal" elements (same pattern as shared/motion.js)
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-    // Run animation check on load and scroll
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
-
-    // 3. Sticky Header Style Change on Scroll
-    const header = document.querySelector('.header');
-    if (header) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                header.style.background = 'var(--teal)';
-                header.style.padding = '0.8rem 0';
-            } else {
-                header.style.background = 'linear-gradient(135deg, var(--teal), var(--blue))';
-                header.style.padding = 'var(--space-sm) 0';
-            }
-        });
+        revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+        // Fallback: show everything immediately
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
     }
 
-    // 4. Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            
-            // Skip if href is just "#"
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Scroll to target with offset for sticky header
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // 3. Footer year
+    var yearEl = document.getElementById('footer-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // 5. Beta Signup Form Submission Handling
-    const betaForm = document.getElementById('beta-signup-form');
+    // 4. Beta signup form submission handling
+    var betaForm = document.getElementById('beta-signup-form');
     if (betaForm) {
-        betaForm.addEventListener('submit', function(e) {
+        betaForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Collect form data (for backend submission)
-            const formData = new FormData(this);
-            const submissionData = Object.fromEntries(formData.entries());
-            
+            var formData = new FormData(this);
+            var submissionData = Object.fromEntries(formData.entries());
+
             // Log data to console (for testing)
             console.log('Beta Program Application:', submissionData);
-            
+
             // Simulate successful submission (replace with real API call in production)
             alert('Thank you for applying to our beta program!\n\nWe will review your application and contact you within 3-5 business days with next steps.');
-            
+
             // Reset form after submission
             this.reset();
 
@@ -119,27 +94,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 6. Add active class to nav link based on scroll position
-    window.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        let currentSection = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (window.scrollY >= (sectionTop - 150)) {
-                currentSection = section.getAttribute('id');
+    // 5. Active nav link based on scroll position
+    var sectionIds = ['features', 'beta-program', 'how-it-works', 'contact'];
+    var sections = sectionIds
+        .map(function (id) { return document.getElementById(id); })
+        .filter(Boolean);
+    var links = document.querySelectorAll('.nav__links a[href^="#"]');
+
+    function updateActiveLink() {
+        var currentId = '';
+        sections.forEach(function (section) {
+            if (window.scrollY >= section.offsetTop - 150) {
+                currentId = section.id;
             }
         });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSection}`) {
-                link.classList.add('active');
-            }
+        links.forEach(function (link) {
+            var isActive = link.getAttribute('href') === '#' + currentId;
+            link.classList.toggle('is-active', isActive);
         });
-    });
+    }
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
 });
