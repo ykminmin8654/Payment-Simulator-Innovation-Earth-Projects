@@ -439,3 +439,6 @@ main, .nav, .footer { position: relative; z-index: 1; }
   .hero__actions .btn { width: 100%; }
   .hero__meta { flex-direction: column; gap: var(--s-2); align-items: center; }
 }
+
+/* ---------- Misc ---------- */
+.main-content { display: block; }
