@@ -223,21 +223,7 @@ main, .nav, .footer { position: relative; z-index: 1; }
 .reason__title { margin-bottom: var(--s-2); font-size: 1.15rem; }
 .reason__desc { margin: 0; color: var(--ink-soft); font-size: var(--fs-sm); }
 
-/* ---------- BETA PROGRAM (text + signup form) ---------- */
-.beta-signup-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--s-7);
-  align-items: start;
-}
-
-.beta-signup-text h3 {
-  color: var(--teal-deep);
-  font-size: var(--fs-h2);
-  margin-bottom: var(--s-4);
-}
-.beta-signup-text p { color: var(--ink-soft); }
-
+/* ---------- BETA ACCESS (info card, no signup form) ---------- */
 .checklist {
   list-style: none;
   margin: var(--s-5) 0;
@@ -259,60 +245,45 @@ main, .nav, .footer { position: relative; z-index: 1; }
   color: var(--teal);
   font-weight: 700;
 }
-.who-we-want {
-  background: var(--surface-alt);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: var(--s-4);
-  font-size: var(--fs-sm);
-}
 
-/* Signup form card — same surface language as the site's cards */
-.beta-signup-form {
+.beta-access-card {
+  max-width: 720px;
+  margin: 0 auto;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  padding: var(--s-6);
+  padding: var(--s-7) var(--s-6);
   box-shadow: var(--shadow-md);
-}
-.beta-signup-form h4 {
-  color: var(--teal-deep);
-  margin-bottom: var(--s-5);
   text-align: center;
+}
+.beta-access-card h3 {
+  color: var(--teal-deep);
   font-size: var(--fs-h3);
+  margin-bottom: var(--s-3);
 }
-
-.form-group { margin-bottom: var(--s-4); }
-.form-group label {
-  display: block;
-  margin-bottom: var(--s-1);
-  font-weight: 600;
-  color: var(--ink);
+.beta-access-card h3 i { color: var(--teal); margin-right: var(--s-2); }
+.beta-access-card p {
+  color: var(--ink-soft);
+  max-width: 54ch;
+  margin: 0 auto;
+}
+.beta-access-card .checklist {
+  text-align: left;
+  display: inline-block;
+  margin: var(--s-5) auto;
+}
+.beta-access-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+  justify-content: center;
+  margin-top: var(--s-6);
+}
+.beta-access-note {
+  margin-top: var(--s-5);
   font-size: var(--fs-sm);
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  font-size: var(--fs-body);
-  font-family: var(--font);
-  color: var(--ink);
-  background: var(--surface);
-  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--cyan);
-  box-shadow: 0 0 0 3px rgba(0, 206, 209, 0.15);
-}
-.form-group textarea {
-  resize: vertical;
-  min-height: 110px;
+  color: var(--ink-faint, var(--ink-soft));
+  opacity: 0.85;
 }
 
 /* ---------- HOW IT WORKS (steps, like home) ---------- */
@@ -430,7 +401,7 @@ main, .nav, .footer { position: relative; z-index: 1; }
 @media (max-width: 860px) {
   .hero { padding: var(--s-7) 0 var(--s-6); }
   .hero__lede { font-size: 1.05rem; }
-  .beta-signup-section { grid-template-columns: 1fr; }
+  .beta-access-card { padding: var(--s-6) var(--s-4); }
   .cta { padding: var(--s-6); flex-direction: column; text-align: center; }
   .cta__actions { justify-content: center; }
 }
