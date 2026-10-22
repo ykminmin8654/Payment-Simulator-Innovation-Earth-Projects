@@ -43,6 +43,16 @@ document.addEventListener('DOMContentLoaded', function () {
         revealEls.forEach(function (el) { el.classList.add('is-visible'); });
     }
 
+    // Safety net: after load, force-reveal anything still hidden (e.g. observer edge cases)
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
+                var r = el.getBoundingClientRect();
+                if (r.top < window.innerHeight) el.classList.add('is-visible');
+            });
+        }, 800);
+    });
+
     // 3. Footer year
     var yearEl = document.getElementById('footer-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
